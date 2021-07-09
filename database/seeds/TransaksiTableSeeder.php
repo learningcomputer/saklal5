@@ -12,14 +12,13 @@ class TransaksiTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pelanggans')->delete();
         // //
 
-        $transaksis = [
-            ['barang' => 'Jam tangan', 'pelanggan_id' => '1'],
-            ['barang' => 'Sepatu', 'pelanggan_id' => '1']
+        $transaksis = array(
+            ['barang' => 'Jam tangan', 'pelanggan_id' => '12'],
+            ['barang' => 'Sepatu', 'pelanggan_id' => '12']
 
-        ];
+        );
 
         foreach($transaksis as $transaksi){
             Transaksi::create($transaksi);
