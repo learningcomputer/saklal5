@@ -11,11 +11,8 @@
 |
 */
 
-// use Illuminate\Routing\Route;
-
-//use Illuminate\Routing\Route;
-
-// use Illuminate\Routing\Route;
+use App\Http\Controllers\AdminController;
+use illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -125,4 +122,16 @@ Route::group(['middleware'=>'web'],function(){
     Route::get('khususadmin',function(){
         echo "Halaman hanya untuk si Admin";
     })->middleware('cekAdmin');
+
+    Route::get('form', function () {
+        return view('form');
+    });
+    Route::post('tujuan_form', function (Request $request) {
+        echo $request->input('name');
+        echo "<p>";
+        echo "token ".$request->input('_token');
+        echo "<p>";
+    });
 });
+
+Route::get('/', array('as'=>'admin','uses'=>'AdminController@index'));
